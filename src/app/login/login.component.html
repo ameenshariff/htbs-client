@@ -1,0 +1,30 @@
+<hr>
+
+<h2 style="text-align-last: center;height: 80px;padding-top: 20px; background-color: rgba(8, 93, 189, 0.767);">Login Form</h2>
+
+<form style=" padding-left: 400px;padding-right: 400px;" #loginForm="ngForm">
+
+<div>
+    <div *ngIf="!loginForm.valid" class="alert alert-danger">Enter Credentials to Login</div>
+</div>
+
+  <div>
+    <label for="userName">User Name:</label>
+    <input type="text" class="form-control" name="userName" id="userName" [(ngModel)]="login.userName" required>
+
+  </div>
+
+
+  <div>
+    <label for="pwd">Password:</label>
+    <input (click)="onChange($event)" type="password" #password class="form-control" name="pwd" id="pwd" [(ngModel)]="login.password" required>
+  </div>
+
+  <div hidden id="pass" class="alert alert-danger">
+    Password must contain 8 characters
+  </div>
+
+  <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary" style="margin-top: 10px;"
+    (click)="onLogin()">Login</button>
+
+</form>

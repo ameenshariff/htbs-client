@@ -1,0 +1,32 @@
+<hr>
+
+<h2 style="margin-left: 500px;">Transactions</h2>
+
+<button id="print" class="btn btn-success" style="margin-left: 1100px;" (click)="printTransactions()">Print
+  Transactions</button>
+
+<table class="table table-hover">
+  <tr>
+    <th>#</th>
+    <th>Transaction ID</th>
+    <th>Bill Number</th>
+    <th>Bill Generate Date</th>
+    <th>Paid Date</th>
+    <th>Amount</th>
+    <th>Fine Paid</th>
+    <th>Paid Through</th>
+
+  </tr>
+  <tr *ngFor="let transaction of transactions;let i=index">
+    <td>{{i+1}}</td>
+    <td>{{transaction.transactionId}}</td>
+    <td>{{transaction.billNo}}</td>
+    <td>{{transaction.billGenerateDate}}</td>
+    <td>{{transaction.paymentDate}}</td>
+    <td>{{transaction.amount}}</td>
+    <td>{{transaction.fine}}</td>
+    <td>{{transaction.paymentNo}}</td>
+  </tr>
+</table>
+
+<p id="noTrans" hidden style="color: red;font-size: 20px; text-align: center; padding-top: 20px;">No previous transaction made for this account.</p>
