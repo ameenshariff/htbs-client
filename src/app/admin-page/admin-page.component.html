@@ -1,0 +1,97 @@
+<hr>
+
+<button class=" btn btn-secondary" style="margin-left: 1100px;margin-top: -130px;" id="logout"
+  (click)="logout()"><label>{{loggedInAdmin}}&nbsp;&nbsp;</label>Logout</button>
+<div id="d">
+
+
+  <!-- <igx-tabs>
+    <igx-tabs-group label="CUSTOMERS"> -->
+  <!-- <div class="md-form mt-0">
+              <label for="">Search : </label>
+              <input class="form-control" placeholder="Enter your search" [(ngModel)]="searchText" style="margin-left: 10px;" type="input" name="" id="">
+          </div> -->
+
+  <h2 style="margin-left: 35%;">Customer Details</h2>
+
+  <!-- Search form -->
+  <input class="form-control" name="search" [(ngModel)]="searchText" autocomplete="off"
+    placeholder="Start searching for a Customer by name or Locality or House Number etc..." type="text" aria-label="Search">
+
+
+  <table class="table">
+    <tr>
+      <th>Customer Name</th>
+      <th>Locality</th>
+      <th>House Type</th>
+      <th>House Number</th>
+      <th>Plot Number</th>
+      <th>Property Registration Date</th>
+      <th>Area(sq.ft)</th>
+      <th colspan="2" style="text-align: center;">Action</th>
+    </tr>
+    <tr *ngFor="let customer of customers | filter:searchText;let i=index">
+      <ng-container>
+        <td>{{customer.firstName}}&nbsp;{{customer.lastName}}</td>
+        <td>{{customer.locality}}</td>
+        <td>{{customer.houseType}}</td>
+        <td>{{customer.houseNo}}</td>
+        <td>{{customer.plotNo}}</td>
+        <td>{{customer.propertyRegistrationDate}}</td>
+        <td>{{customer.area}}</td>
+        <td><button (click)="editCustomer()" class=" btn btn-primary">Edit</button></td>
+        <td><button *ngIf="areDateSame(customer.propertyRegistrationDate)" class=" btn btn-primary"
+            (click)="generateBill(customer.firstName,customer.lastName,customer.userName)">Generate Bill</button>
+            <!-- <ng-container #disabledButton>
+              <button disabled class=" btn btn-primary">Generate Bill</button>
+            </ng-container> -->
+          </td>
+      </ng-container>
+    </tr>
+  </table>
+
+  <table hidden id="editing" class="table">
+    <tr>
+      <th>Title</th>
+      <td><input type="text" name="title"></td>
+      <!-- <td><p id="title"></p></td> -->
+    </tr>
+
+    <tr>
+      <th>Author</th>
+      <td><input type="text" name="author"></td>
+    </tr>
+
+    <tr>
+      <th>Publication</th>
+      <td><input type="text" name="publication"></td>
+    </tr>
+
+    <!-- <tr>
+                    <th>No Of Copies</th>
+                    <td><input type="number" min="1" value="{{bookToBeEdit.noOfCopies}}" name="noOfCopies" #noOfCopies="ngModel"
+                        [(ngModel)]="bookToBeEdit.noOfCopies"></td>
+                  </tr> -->
+
+    <tr>
+      <th colspan="2"><button class="btn btn-warning">Update</button>
+        &nbsp; <button (click)=hide() class="btn btn-light">Hide</button></th>
+
+    </tr>
+
+  </table>
+
+  <!-- </igx-tabs-group>
+    <igx-tabs-group label="Tab 2">This is Tab 2 content.</igx-tabs-group>
+  </igx-tabs> -->
+
+
+
+
+  <!-- <div style="margin-left: 460px;margin-top: 20px;">
+    <label>Select User To Generate Tax bill:</label>
+    <select required >
+      <option *ngFor="let user of users;" value="{{user}}">{{user}}</option>
+    </select>
+    
+  </div> -->
