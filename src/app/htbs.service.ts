@@ -13,6 +13,7 @@ import { BillGenerate } from './model/billGen';
 export class HtbsService {
   
   
+  
  
   
   private baseUrl = 'http://localhost:8080';
@@ -82,5 +83,8 @@ export class HtbsService {
     return this.http.post(`${this.baseUrl}/generateBill/`,billGen);
   }
 
+  updateCustomer(customer: Customer) {
+    return this.http.put(`${this.baseUrl}/updateEditedCustomers/`,customer);
+  }
 
 }

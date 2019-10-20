@@ -13,11 +13,12 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { PaymentComponent } from './payment/payment.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { PaymentTransactionsComponent } from './payment-transactions/payment-transactions.component';
-import { CanActivateRouteGuard } from './prevent-login.guard';
+import { CanActivateRouteGuard} from './prevent-login.guard';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { IgxTabsModule } from 'igniteui-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     PaymentComponent,
     PaymentTransactionsComponent,
     AdminPageComponent,
+    EditCustomerComponent,
     
   ],
   imports: [

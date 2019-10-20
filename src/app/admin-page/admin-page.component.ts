@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { PassdataService } from '../passdata.service';
 import { Router } from '@angular/router';
 import { HtbsService } from '../htbs.service';
 import { Customer } from '../model/customerreg';
 import { last } from '@angular/router/src/utils/collection';
 import { BillGenerate } from '../model/billGen';
+import { EditCustomerComponent } from '../edit-customer/edit-customer.component';
 
 @Component({
   selector: 'app-admin-page',
   templateUrl: './admin-page.component.html',
   styleUrls: ['./admin-page.component.css']
 })
+
 export class AdminPageComponent implements OnInit {
 
   loggedInAdmin = "";
@@ -76,7 +78,9 @@ export class AdminPageComponent implements OnInit {
   }
 
   editCustomer(customer) {
-    this.customerToBeEdited = customer;
+    console.log(customer)
+    this.dataService.setcustomerToBeEdited(customer);
+    this.router.navigate(['/edit-customer'])
     document.getElementById("editing").hidden = false;
   }
 

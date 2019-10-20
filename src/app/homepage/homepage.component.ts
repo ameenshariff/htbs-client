@@ -25,6 +25,6 @@ export class HomepageComponent implements OnInit {
     this.router.navigate(['/registration']) 
   }
   
-  set
+
 
 }

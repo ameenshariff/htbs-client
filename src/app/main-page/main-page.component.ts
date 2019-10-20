@@ -6,13 +6,14 @@ import { RegistrationComponent } from '../registration/registration.component';
 import { Customer } from '../model/customerreg';
 import { HtbsService } from '../htbs.service';
 import { BillDetails } from '../model/billDetails';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent implements OnInit{
   loggedInCustomer = "";
 
   customer: Customer = new Customer();
@@ -45,6 +46,17 @@ export class MainPageComponent implements OnInit {
 
   }
 
+  
+
+  // canExit() : boolean {
+    
+  //   if (confirm("Do you wish to Please confirm")) {
+  //       return true
+  //     } else {
+  //       return false
+  //     }
+  //   }
+
   logout() {
     if (confirm("Are you sure ?")) {
       this.service.logOut();
@@ -53,11 +65,11 @@ export class MainPageComponent implements OnInit {
   }
 
   onPay(bill: BillDetails) {
-    this.billDetails.splice(0, 1);
-    console.log(this.billDetails.length);
-    if (this.billDetails.length <= 1) {
-      (<HTMLHeadElement>document.getElementById("noBills")).hidden = false;
-    }
+    // this.billDetails.splice(0, 1);
+    // console.log(this.billDetails.length);
+    // if (this.billDetails.length <= 1) {
+    //   (<HTMLHeadElement>document.getElementById("noBills")).hidden = false;
+    // }
     localStorage.setItem("billNo", bill.billNo.toString());
     this.dataService.setAmount(bill.amount);
     // localStorage.setItem("billGenerateDate", bill.billDate);
@@ -73,3 +85,7 @@ export class MainPageComponent implements OnInit {
   }
 
 }
+
+// export interface IDeactivateComponent {
+//   canExit: () => Observable<boolean> | Promise<boolean> | boolean;
+// }

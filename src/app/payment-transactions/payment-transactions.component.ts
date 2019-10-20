@@ -18,6 +18,7 @@ export class PaymentTransactionsComponent implements OnInit {
   constructor(private service: HtbsService,private passService:PassdataService) { }
 
   ngOnInit() {
+    (<HTMLDivElement>document.getElementById("navg")).hidden=false
     this.billGenerateDate=this.passService.getDate();
     this.service.getAllTransactions(sessionStorage.getItem("userName")).subscribe((data)=>{
       console.log(data)

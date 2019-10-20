@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
+import { Customer } from './model/customerreg';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PassdataService {
   
+  
   private custName=""
 
   date;
   amount;
+
+  customerToBeEdited:Customer;
   constructor() { }
 
   
@@ -35,5 +39,13 @@ export class PassdataService {
 
   setCustName(custName){
     this.custName=custName;
+  }
+
+  setcustomerToBeEdited(customer: any) {
+    this.customerToBeEdited=customer;
+  }
+
+  getcustomerToBeEdited(){
+    return this.customerToBeEdited;
   }
 }
