@@ -1,6 +1,6 @@
 #d{
   background-color: lightgrey;
-  width: 320px;
+  width: 380px;
   border: 15px solid rgba(12, 86, 129, 0.685);
   padding: 20px;
   margin: 20px;
@@ -11,6 +11,6 @@
   width: 700px;
   /* border: 15px solid rgba(229, 245, 87, 0.877); */
   /* padding: 200px; */
-  margin-left:380px;
+  margin-left:420px;
   margin-top: -280px;
 }

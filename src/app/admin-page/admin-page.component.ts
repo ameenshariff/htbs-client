@@ -15,6 +15,8 @@ import { EditCustomerComponent } from '../edit-customer/edit-customer.component'
 
 export class AdminPageComponent implements OnInit {
 
+  count = 1;
+
   loggedInAdmin = "";
 
   searchText
@@ -36,6 +38,7 @@ export class AdminPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    
 
     // console.log(customer.propertyRegistrationDate==this.todaysDate);
     (<HTMLDivElement>document.getElementById("navg")).hidden = true
@@ -59,13 +62,18 @@ export class AdminPageComponent implements OnInit {
   }
 
   generateBill(firstName, lastName, userName) {
+
+
     this.billGen.userName = userName;
     this.billGen.billGenerateDate = new Date().toISOString().slice(0, 10)
 
-    // console.log(this.billGen)
+    console.log(this.billGen)
     const confirmation = confirm("Bill will be generated for " + firstName + " " + lastName + ". Are you sure?")
-    if (confirmation)
-      this.service.generateBill(this.billGen).subscribe();
+    if (confirmation) {
+        this.service.generateBill(this.billGen).subscribe();
+        this.ngOnInit();
+    }
+
 
 
   }

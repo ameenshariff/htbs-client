@@ -24,7 +24,7 @@ export class CanActivateRouteGuard implements CanActivate {
       return true;
     }
     else {
-      alert("Please")
+      // alert("Please")
       this.router.navigate(["/homepage"]);
 
       return false;

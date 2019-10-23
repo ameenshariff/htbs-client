@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Customer } from '../model/customerreg';
 import { Login } from '../model/login';
 import { HtbsService } from '../htbs.service';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -15,7 +17,7 @@ export class RegistrationComponent implements OnInit {
 
   isUserNameRegistered;
 
-  constructor(private service: HtbsService) {
+  constructor(private service: HtbsService,private router:Router) {
     this.isUserNameRegistered = true;
     this.registration = new Customer();
     this.login = new Login();
@@ -40,6 +42,7 @@ export class RegistrationComponent implements OnInit {
         this.service.loginDetails(this.login).subscribe();
         alert("Registration Succesfull")
         console.log(this.registration);
+        this.router.navigate(["/homepage"])
       }
       else {
         (<HTMLLabelElement>document.getElementById("sameId")).hidden = false;

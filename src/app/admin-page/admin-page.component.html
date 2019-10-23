@@ -40,7 +40,7 @@
         <td>{{customer.propertyRegistrationDate}}</td>
         <td>{{customer.area}}</td>
         <td><button (click)="editCustomer(customer)" class=" btn btn-primary">Edit</button></td>
-        <td><button *ngIf="areDateSame(customer.propertyRegistrationDate)" class=" btn btn-primary"
+        <td><button id="genBill" *ngIf="areDateSame(customer.propertyRegistrationDate)" class=" btn btn-primary"
             (click)="generateBill(customer.firstName,customer.lastName,customer.userName)">Generate Bill</button>
             <!-- <ng-container #disabledButton>
               <button disabled class=" btn btn-primary">Generate Bill</button>
