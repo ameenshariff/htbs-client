@@ -57,6 +57,8 @@ export class PaymentComponent implements OnInit {
 
     const billAmount = this.passService.getAmount();
     const total=billAmount+this.fine;
+    console.log(billAmount)
+    console.log(total)
     this.payment.amount = this.amount;
     this.payment.userName = sessionStorage.getItem("userName");
     this.payment.billGenerateDate=this.passService.getDate();

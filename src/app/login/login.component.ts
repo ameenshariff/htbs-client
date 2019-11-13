@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   login: Login;
   isUser;
+  error: any;
 
   constructor(private router: Router, private service: HtbsService, private dataService: PassdataService) {
     this.login = new Login();
@@ -51,7 +52,8 @@ export class LoginComponent implements OnInit {
           }
           else
             alert("User Name or Password is incorrect")
-        });
+        },
+        error => this.error = error);
 
       }
 

@@ -14,26 +14,26 @@
 
   <div>
     <label for="lName">Last Name:</label>
-    <input type="text" class="form-control" pattern="[A-Z][a-z]{0,12}"  id="lName" name="lName" [(ngModel)]="registration.lastName" #lName="ngModel" required>
+    <input type="text" placeholder="ex: Shariff" class="form-control" pattern="[A-Z][a-z]{0,12}"  id="lName" name="lName" [(ngModel)]="registration.lastName" #lName="ngModel" required>
     <div [hidden]="lName.valid || lName.pristine" class="alert alert-danger">Last Name is not valid. First letter must
         by Uppercase and min=1, max=12</div>
   </div>
 
   <div>
     <label for="hNo">House Number:</label>
-    <input type="text" maxlength="4" pattern="[0-9]{2,4}" class="form-control" id="hNo" name="hNo" [(ngModel)]="registration.houseNo" #hNo="ngModel" required>
+    <input type="text" placeholder="ex: 565" maxlength="4" pattern="[0-9]{2,4}" class="form-control" id="hNo" name="hNo" [(ngModel)]="registration.houseNo" #hNo="ngModel" required>
     <div [hidden]="hNo.valid || hNo.pristine" class="alert alert-danger">House Number is not valid. Only Numbers are accepted min=3</div>
   </div>
 
   <div>
     <label for="pNo">Plot Number:</label>
-    <input type="text" maxlength="4" pattern="[0-9]{1,4}" class="form-control" id="pNo" name="pNo" [(ngModel)]="registration.plotNo" #pNo="ngModel" required>
+    <input type="text" placeholder="ex: 34" maxlength="4" pattern="[0-9]{1,4}" class="form-control" id="pNo" name="pNo" [(ngModel)]="registration.plotNo" #pNo="ngModel" required>
     <div [hidden]="pNo.valid || pNo.pristine" class="alert alert-danger">Plot Number is not valid. Only Numbers are accepted min=1</div>
   </div>
 
   <div>
     <label for="area">Area (in Sq.ft):</label>
-    <input type="number" class="form-control" id="area" name="area" [(ngModel)]="registration.area" #area="ngModel" required>
+    <input type="number" placeholder="ex: 1200" class="form-control" id="area" name="area" [(ngModel)]="registration.area" #area="ngModel" required>
     <div [hidden]="area.valid || area.pristine" class="alert alert-danger">Area is accepted in square feet . Only Numbers are accepted min=1</div>
   </div>
 
@@ -67,7 +67,7 @@
 
   <div>
     <label for="userName">User Name:</label>
-    <input (click)="user($event)" type="text" pattern="[a-z]{2,12}" id="userName" class="form-control" name="userName" [(ngModel)]="login.userName" #userName="ngModel" required>
+    <input (click)="user($event)" placeholder="ex: ameshari" type="text" pattern="[a-z]{2,12}" id="userName" class="form-control" name="userName" [(ngModel)]="login.userName" #userName="ngModel" required>
     <div [hidden]="userName.valid || userName.pristine" class="alert alert-danger">User Name is not valid. min=5, max=12</div>
     <div id="sameId" hidden class="alert alert-danger">User Name Already Registered. Use different User Name
       or try Logging in.

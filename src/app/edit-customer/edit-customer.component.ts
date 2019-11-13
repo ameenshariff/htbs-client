@@ -27,9 +27,19 @@ export class EditCustomerComponent implements OnInit {
     const confirmation = confirm("Are you sure?")
     if (confirmation){
       this.service.updateCustomer(this.customer).subscribe();
-      this.router.navigate(['/admin-page'])
+      // this.router.navigate(['/admin-page'])
+      this.router.navigateByUrl('admin-page')
+      
     }
       
+  }
+
+  taxChangeAlert(){
+    (<HTMLDivElement>document.getElementById("alrt")).hidden=false;
+  }
+
+  taxChangeAlert1(){
+    (<HTMLDivElement>document.getElementById("alrt1")).hidden=false;
   }
 
 }

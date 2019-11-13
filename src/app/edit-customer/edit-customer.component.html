@@ -38,24 +38,26 @@
   <div>
     <label for="area">Area (in Sq.ft):</label>
     <input type="number" class="form-control" id="area" name="area" [(ngModel)]="customer.area" #area="ngModel"
-      required>
+      required (click)="taxChangeAlert()">
     <div [hidden]="area.valid || area.pristine" class="alert alert-danger">Area is accepted in square feet . Only
       Numbers are accepted min=1</div>
+      <div id="alrt" hidden class="alert alert-danger">Please Be aware that changing this field will make changes in Bill amount</div>
   </div>
 
   <div>
     <label>Select Locality:</label>
-    <select [(ngModel)]="customer.locality" name="locality" class="form-control" required>
+    <input disabled [(ngModel)]="customer.locality" name="locality" class="form-control" type="text">
+    <!-- <select [(ngModel)]="customer.locality" name="locality" class="form-control" required>
       <option value="customer.locality">{{customer.locality}} </option>
       <option value="Thanisandra">Thanisandra</option>
       <option value="White_Field">White Field</option>
       <option value="HBR_Layout">HBR Layout</option>
-    </select>
+    </select> -->
   </div>
 
   <div>
     <label>Select HouseType:</label>
-    <select [(ngModel)]="customer.houseType" name="houseType" class="form-control" required>
+    <select (click)="taxChangeAlert1()" [(ngModel)]="customer.houseType" name="houseType" class="form-control" required>
       <!-- <option value="select">Select </option> -->
       <option value="Penthouses">Penthouses</option>
       <option value="Apartments_and_Flats">Apartments and Flats</option>
@@ -63,6 +65,7 @@
       <option value="Farmhouses">Farmhouses</option>
       <option value="Eco_friendly_Homes">Eco friendly Homes</option>
     </select>
+    <div id="alrt1" hidden class="alert alert-danger">Please Be aware that changing this field will make changes in Bill amount</div>
   </div>
 
 
