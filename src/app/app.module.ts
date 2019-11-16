@@ -19,6 +19,8 @@ import { IgxTabsModule } from 'igniteui-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { AngularMaterialModule } from './angular-material.modute';
+import { MatButtonModule, MatNativeDateModule } from '@angular/material';
 // import { HttpErrorInterceptor } from './http-error.interceptor';
 
 @NgModule({
@@ -43,7 +45,10 @@ import { EditCustomerComponent } from './edit-customer/edit-customer.component';
     MatMenuModule,
     IgxTabsModule,
     BrowserAnimationsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    AngularMaterialModule,
+    MatButtonModule,
+    MatNativeDateModule
   ],
   providers: [CanActivateRouteGuard],
   bootstrap: [AppComponent]

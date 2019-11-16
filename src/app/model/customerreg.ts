@@ -1,4 +1,5 @@
 export class Customer{
+    custId:number
     userName:string
     firstName:string;
     lastName:string;
@@ -7,5 +8,6 @@ export class Customer{
     area:number;
     houseType:string;
     locality:string;
+    pRegistrationDate:Date
     propertyRegistrationDate:string
 }

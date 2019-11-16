@@ -15,12 +15,15 @@ export class RegistrationComponent implements OnInit {
   registration: Customer;
   login: Login;
 
+  maxDate :Date;
+
   isUserNameRegistered;
 
   constructor(private service: HtbsService,private router:Router) {
     this.isUserNameRegistered = true;
     this.registration = new Customer();
     this.login = new Login();
+    this.maxDate= new Date();
   }
 
   ngOnInit() {
@@ -33,6 +36,13 @@ export class RegistrationComponent implements OnInit {
 
   onRegister() {
     this.registration.userName = this.login.userName;
+    console.log(this.registration.pRegistrationDate.toISOString());
+    
+
+    this.registration.propertyRegistrationDate=this.registration.pRegistrationDate.getFullYear()+"-"
+    +(this.registration.pRegistrationDate.getMonth()+1)+"-"+this.registration.pRegistrationDate.getDate();
+    
+    console.log(this.registration.propertyRegistrationDate);
     this.service.registerCustomer(this.registration).subscribe((data) => {
       this.isUserNameRegistered = data;
       console.log(data)

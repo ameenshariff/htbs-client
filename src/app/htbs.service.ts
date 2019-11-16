@@ -7,13 +7,19 @@ import { Payment } from './model/payment';
 import { MainPageComponent } from './main-page/main-page.component';
 import { BillGenerate } from './model/billGen';
 import { retry, catchError } from 'rxjs/operators';
+import { BillDetails } from './model/billDetails';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HtbsService {
-  checkBillForCurrentMonthByUserName(userName: any) {
-    return this.http.get(`${this.baseUrl}/checkBillForCurrentMonthByUserName/${userName}`);
+  deleteCustomer(custId: number) {
+    console.log(custId);
+    return this.http.delete(`${this.baseUrl}/deleteCustomer/${custId}`);
+  }
+  checkBillForCurrentMonth(custId: any) {
+    console.log(custId)
+    return this.http.get(`${this.baseUrl}/checkBillForCurrentMonth/${custId}`);
   }
   
   private baseUrl = 'http://localhost:8080';
@@ -67,8 +73,8 @@ export class HtbsService {
     return this.http.get(`${this.baseUrl}/getCustomerDetails/${loggedInCustomer}`);
   }
 
-  getBillDetails(loggedInCustomer: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/getBills/${loggedInCustomer}`);
+  getBillDetails(loggedInCustomerId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/getBills/${loggedInCustomerId}`);
   }
 
   savePaymentDetails(payment: Payment) {
@@ -110,9 +116,9 @@ export class HtbsService {
     return this.http.get(`${this.baseUrl}/calculateFine/${billNo}/${billPayDate}`);
   }
 
-  generateBill(billGen:BillGenerate) {
-    console.log(billGen)
-    return this.http.post(`${this.baseUrl}/generateBill/`,billGen);
+  generateBill(billGen:BillDetails,custId:number) {
+    // console.log(billGen)
+    return this.http.post(`${this.baseUrl}/generateBill/${custId}`,billGen);
   }
 
   updateCustomer(customer: Customer) {

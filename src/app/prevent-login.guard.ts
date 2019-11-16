@@ -33,22 +33,3 @@ export class CanActivateRouteGuard implements CanActivate {
 
   }
 }
-
-
-// @Injectable()
-// export class DeactivateGuardService implements CanDeactivate {
-//   component: Object;
-//   route: ActivatedRouteSnapshot;
-
-//   constructor() { }
-
-//   canDeactivate(component: IDeactivateComponent,
-//     route: ActivatedRouteSnapshot,
-//     state: RouterStateSnapshot,
-//     nextState: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-
-//     return component.canExit();
-
-//   }
-
-// }

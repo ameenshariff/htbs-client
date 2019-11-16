@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })
-export class MainPageComponent implements OnInit{
+export class MainPageComponent implements OnInit {
   loggedInCustomer = "";
 
   customer: Customer = new Customer();
@@ -30,26 +30,31 @@ export class MainPageComponent implements OnInit{
 
   ngOnInit() {
 
+
     (<HTMLDivElement>document.getElementById("navg")).hidden = false;
     this.loggedInCustomer = sessionStorage.getItem("userName");
     this.service.getLoggedInCustomer(this.loggedInCustomer).subscribe(data => {
       console.log(data);
       this.customer = data;
       this.customerFullName = this.customer.firstName + " " + this.customer.lastName;
+
+      this.service.getBillDetails(this.customer.custId).subscribe((data) => {
+        console.log(data);
+        this.billDetails = data;
+  
+      });
     });
 
-    this.service.getBillDetails(this.loggedInCustomer).subscribe((data) => {
-      console.log(data);
-      this.billDetails = data;
 
-    });
+
+    
 
   }
 
-  
+
 
   // canExit() : boolean {
-    
+
   //   if (confirm("Do you wish to Please confirm")) {
   //       return true
   //     } else {
@@ -72,12 +77,14 @@ export class MainPageComponent implements OnInit{
     // }
     localStorage.setItem("billNo", bill.billNo.toString());
     this.dataService.setAmount(bill.amount);
+    console.log(bill.amount)
     // localStorage.setItem("billGenerateDate", bill.billDate);
 
     this.dataService.setdate(bill.billDate);
     // this.service.fine(bill.billNo);
 
     this.router.navigate(['/payment']);
+
   }
 
   showHistory() {
