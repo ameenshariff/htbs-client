@@ -3,6 +3,7 @@ import { Login } from '../model/login';
 import { Router } from '@angular/router';
 import { HtbsService } from '../htbs.service';
 import { PassdataService } from '../passdata.service';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +11,16 @@ import { PassdataService } from '../passdata.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  hide = true;
   login: Login;
   isUser;
   error: any;
+  show: boolean
+
 
   constructor(private router: Router, private service: HtbsService, private dataService: PassdataService) {
     this.login = new Login();
+    this.show = false;
   }
 
   ngOnInit() {
@@ -53,7 +57,7 @@ export class LoginComponent implements OnInit {
           else
             alert("User Name or Password is incorrect")
         },
-        error => this.error = error);
+          error => this.error = error);
 
       }
 
@@ -62,9 +66,16 @@ export class LoginComponent implements OnInit {
 
   }
 
-  onChange() {
-    console.log("qwerty");
-    (<HTMLDivElement>document.getElementById("pass")).hidden = false;
+  password1() {
+    console.log("show.........")
+    this.show = !this.show;
   }
+
+
+
+  // onChange() {
+  //   console.log("qwerty");
+  //   (<HTMLDivElement>document.getElementById("pass")).hidden = false;
+  // }
 
 }

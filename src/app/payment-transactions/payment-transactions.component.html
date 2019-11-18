@@ -53,7 +53,12 @@
       
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+      
     </table>
+
+    <p id="noTrans" hidden style="color: red;font-size: 20px; text-align: center; padding-top: 20px;">No previous transaction made for this account.</p>
   
     <!-- Angular 8 pagination -->
     <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
@@ -84,4 +89,3 @@
   </tr>
 </table> -->
 
-<p id="noTrans" hidden style="color: red;font-size: 20px; text-align: center; padding-top: 20px;">No previous transaction made for this account.</p>

@@ -95,8 +95,11 @@ export class AdminPageComponent implements OnInit {
         console.log(data)
         if (data)
           alert("Bill has already generated for this customer for this month");
-        else
+        else{
           this.service.generateBill(this.monthlyBill, custId).subscribe();
+          window.location.reload();
+        }
+          
       })
     }
   }

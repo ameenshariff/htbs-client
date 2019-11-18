@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 // import { MatSortModule } from '@angular/material/sort';
-import {MatSortModule, MatFormField, MatFormFieldModule, MatInputModule, MatDatepickerModule } from '@angular/material';
+import {MatSortModule, MatFormField, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatIconModule, MatCardModule, MatProgressSpinnerModule } from '@angular/material';
 import { MatPaginatorModule } from '@angular/material';
 
 @NgModule({
@@ -16,7 +16,9 @@ import { MatPaginatorModule } from '@angular/material';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatIconModule,
+    MatCardModule,MatProgressSpinnerModule
   ]
 })
 

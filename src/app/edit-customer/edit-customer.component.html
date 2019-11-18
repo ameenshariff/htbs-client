@@ -1,8 +1,12 @@
 <hr>
 
-<h3 style="text-align: center;margin: 30px;">Update Customer Details</h3>
+<h3 style="text-align: center;margin: 30px;height: 80px;padding-top: 20px; background-color: rgba(8, 93, 189, 0.767);">Update Customer Details</h3>
+<mat-card class="example-card">
 
-<form #loginForm="ngForm" style="padding-left: 400px;padding-right: 400px;">
+  
+<form #loginForm="ngForm" >
+
+    
   <div>
     <label for="fName">First Name:</label>
     <input placeholder="ex: Ameen" type="text" class="form-control" id="fName" #fName="ngModel"
@@ -75,3 +79,4 @@
     (click)="onUpdate()">Update</button>
 
 </form>
+</mat-card>
